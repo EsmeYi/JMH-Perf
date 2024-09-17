@@ -3,7 +3,7 @@ import os
 import json
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler, LabelEncoder
-from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.models import Model
 from tensorflow.keras.layers import LSTM, Dense, Input
 from tensorflow.keras.callbacks import EarlyStopping
 
@@ -93,11 +93,9 @@ def build_lstm_model(input_shape):
     model.compile(optimizer='adam', loss='mse')
     return model
 
-# Main execution flow
-data_folder = './timeseries/train_set'  # Path to your dataset folder
-n_steps = 100  # Number of previous steps used for prediction
+data_folder = './timeseries/train_set'
+n_steps = 100
 
-# Prepare the dataset
 X, y, label_encoder = prepare_data(data_folder, n_steps)
 
 # Split data into training and testing sets

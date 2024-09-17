@@ -1,7 +1,6 @@
 import os
 import json
 import numpy as np
-import pandas as pd
 
 # Use the approach of Kalibera and Jones to detect the steady state
 def find_steady_state_index(data, change_points, steady_segment_size=500, tolerance=0.05):

@@ -21,7 +21,6 @@ def vis_forks_benchmark(benchmark_data):
         plt.grid(True)
 
     plt.tight_layout()
-    # Save the figure as a PNG image
     image_path = os.path.join(output_folder, f"vis_time_series.png")
     plt.savefig(image_path, bbox_inches='tight', dpi=300)
     plt.close()
@@ -34,7 +33,6 @@ def plot_forks_boxplot(benchmark_data):
     plt.ylabel('Execution time (sec)')
     plt.grid(True)
 
-    # Save the figure as a PNG image
     image_path = os.path.join(output_folder, f"forks_boxplot.png")
     plt.savefig(image_path, bbox_inches='tight', dpi=300)
     plt.close()
@@ -109,7 +107,6 @@ def plot_statistics_table_fork(benchmark_data, file_name):
     table.set_fontsize(10)
     table.scale(1.2, 1.2)
     fig.suptitle(f"Statistics for {file_name}", fontsize=14)
-    # Save the figure as a PNG image
     image_path = os.path.join(output_folder, f"forks_statistics_table.png")
     plt.savefig(image_path, bbox_inches='tight', dpi=300)
     plt.close()

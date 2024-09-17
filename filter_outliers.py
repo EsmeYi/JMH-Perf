@@ -7,9 +7,8 @@ from basic_statistics_benckmarks import load_benchmark_data
 # Use the method by Tukey to filter outliers
 def filter_outliers(data, window_size=200):
     data = pd.Series(data)
-    is_valid = pd.Series([True] * len(data))  # Create a boolean mask for valid points
+    is_valid = pd.Series([True] * len(data))
 
-    # Iterate through the data with a rolling window
     for i in range(len(data) - window_size + 1):
         window = data[i:i + window_size]
         median = window.median()
@@ -19,7 +18,6 @@ def filter_outliers(data, window_size=200):
         # Mark outliers as False in the is_valid mask
         is_valid[i:i + window_size] = is_valid[i:i + window_size] & (window >= lower_bound) & (window <= upper_bound)
 
-    # Filter out the outliers using the boolean mask
     filtered_data = data[is_valid].to_numpy()
 
     # outlier_percentage = (1 - len(filtered_data) / len(data)) * 100
